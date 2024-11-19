@@ -1,0 +1,31 @@
+/* RRHHNavbar.css */
+
+.rrhh-navbar {
+    background-color: #007bff;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .rrhh-navbar ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .rrhh-navbar ul li {
+    display: inline;
+  }
+  
+  .rrhh-navbar ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+  }
+  
+  .rrhh-navbar ul li a:hover {
+    background-color: #0056b3;
+    border-radius: 5px;
+  }
+  

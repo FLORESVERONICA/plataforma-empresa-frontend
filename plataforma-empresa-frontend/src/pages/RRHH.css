@@ -1,0 +1,58 @@
+/* RRHH.css */
+
+/* Estilos generales */
+.rrhh {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+  }
+  
+  h1 {
+    color: #333;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Estilos para la barra de navegación de RRHH */
+  .rrhh-navbar {
+    background-color: #007bff;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .rrhh-navbar ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .rrhh-navbar ul li {
+    display: inline;
+  }
+  
+  .rrhh-navbar ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+  }
+  
+  .rrhh-navbar ul li a:hover {
+    background-color: #0056b3;
+    border-radius: 5px;
+  }
+  

@@ -1,0 +1,54 @@
+/* Dashboard.css */
+
+/* Estilos generales */
+.dashboard {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+  }
+  
+  h1, h2 {
+    color: #333;
+  }
+  
+  .quick-access {
+    margin-top: 20px;
+  }
+  
+  .quick-access-nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    background-color: #007bff;
+    border-radius: 5px;
+  }
+  
+  .quick-access-nav ul li {
+    display: inline;
+  }
+  
+  .quick-access-nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+  }
+  
+  .quick-access-nav ul li a:hover {
+    background-color: #0056b3;
+    border-radius: 5px;
+  }
+  
+  .stats {
+    margin-top: 20px;
+  }
+  
+  .stat {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
