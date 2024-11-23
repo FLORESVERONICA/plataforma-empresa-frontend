@@ -1,0 +1,99 @@
+.gestion-puestos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nuevo-departamento,
+.nuevo-puesto {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.nuevo-departamento input,
+.nuevo-puesto input {
+  margin-right: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.nuevo-departamento button,
+.nuevo-puesto button {
+  padding: 5px 10px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.nuevo-departamento button:hover,
+.nuevo-puesto button:hover {
+  background-color: #0056b3;
+}
+
+.departamento {
+  background-color: #2a56a7;
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 8px;
+  width: 100%;
+}
+
+
+.departamento h3 {
+  margin-bottom: 10px;
+}
+
+.departamento button {
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  border: none;
+  background-color: #dc3545;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.departamento button:hover {
+  background-color: #c82333;
+}
+
+.departamento ul {
+  list-style: none;
+  padding: 0;
+}
+
+.departamento li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.departamento li:last-child {
+  border-bottom: none;
+}
+
+.departamento li button {
+  padding: 5px 10px;
+  border: none;
+  background-color: #dc3545;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.departamento li button:hover {
+  background-color: #c82333;
+}
+
+/* Estilo para la lista de puestos */
+.puestos-lista li {
+  color: #2357c8; /* Azul */
+  font-weight: bold;
+  margin: 5px 0;
+}

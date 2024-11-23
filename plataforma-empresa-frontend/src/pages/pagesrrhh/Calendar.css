@@ -1,0 +1,99 @@
+.calendar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .weekdays {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .weekday {
+    width: 100px;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .month {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+  }
+  
+  .day {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 100px;
+    text-align: center;
+    margin: 5px;
+  }
+  
+  .day-number {
+    display: block;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  .group-name {
+    display: block;
+    font-size: 0.9em;
+  }
+  
+  .holiday {
+    background-color: red;
+    color: white;
+  }
+  
+  .local-holiday {
+    background-color: blue;
+    color: white;
+  }
+  
+  .state-holiday {
+    background-color: red;
+    color: white;
+  }
+  
+  .autonomic-holiday {
+    background-color: green;
+    color: white;
+  }
+  
+  .GrupoA {
+    background-color: lightblue;
+  }
+  
+  .GrupoB {
+    background-color: lightgreen;
+  }
+  
+  .GrupoC {
+    background-color: lightcoral;
+  }
+  
+  .GrupoD {
+    background-color: lightgoldenrodyellow;
+  }
+  
+  .add-holiday {
+    margin-top: 20px;
+  }
+  
+  .add-holiday input,
+  .add-holiday select,
+  .add-holiday button {
+    margin: 5px;
+  }
+  

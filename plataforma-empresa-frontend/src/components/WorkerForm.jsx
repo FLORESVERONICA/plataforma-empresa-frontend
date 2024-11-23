@@ -231,17 +231,34 @@ return (
           <option value="Mep">MEP</option>
           <option value="Produccion">Producción</option>
           <option value="Envasado">Envasado</option>
+          <option value="Limpieza">Limpieza</option>
+          <option value="Estructura">Estructura</option>
         </select>
       </label>
       <label>
             Puesto:
         <select name="Puesto" value={worker.Puesto} onChange={handleChange}>
           <option value="Cocinadia">Cocina Dia</option>
-          <option value="Arroz">Arroz</option>
-          <option value="Rollos">Rollos</option>
-          <option value="EnvasadoPlatosFrios">Platos Frios</option>
-          <option value="EnvasadoPlatosCalientes">Calientes</option>
+          <option value="Cocinanoche">Cocina Noche</option>
+          <option value="Arrozdia">Arroz dia</option>
+          <option value="Arroznoche"> Arroz Noche</option>
+          <option value="Verduras">verduras</option>
+          <option value="Manga">Manga</option>
+          <option value="CortedePescado">Corte de pescado</option>
+          <option value="ProducciondeRollos1">Prod Rollos Mesa 1</option>
+          <option value="ProducciondeRollos2">Prod Rollos Mesa 2</option>
+          <option value="ProdducciondeRollos3">Prod Rollos Mesa 3</option>
           <option value="Niguiris">Niguiris</option>
+          <option value="EnvasadoPlatosFrios">Platos Frios</option>
+          <option value="EnvasadoPlatosCalientes"> Platos Calientes</option>
+          <option value="Limpieza">Limpieza Nocturna</option>
+          <option value="pica1">Pica Mañana</option>
+          <option value="pica2">Pica Tarde</option>
+          <option value="pica3">Pica Noche</option>
+          <option value="JefalineaCocina">Jefa de Linea Cocina</option>
+          <option value="JefalineaMEP">Jefa de Linea MEP</option>
+          <option value="JefalineaProduccion">Jefa de Linea Produccion</option>
+          <option value="JefalineaEnvasado">Jefa de Linea Envasado</option>
         </select>
       </label>
 

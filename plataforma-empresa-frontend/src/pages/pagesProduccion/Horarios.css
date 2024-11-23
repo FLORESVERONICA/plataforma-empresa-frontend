@@ -1,0 +1,62 @@
+.horarios {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fecha {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+  margin-bottom: 20px;
+}
+
+.fecha button {
+  padding: 5px 10px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.fecha button:hover {
+  background-color: #0056b3;
+}
+
+.horarios-lista {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.departamento {
+  width: 80%;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  color: white;
+}
+
+.departamento h3 {
+  margin-bottom: 10px;
+}
+
+.puesto {
+  margin-bottom: 10px;
+}
+
+.puesto h4 {
+  margin-bottom: 5px;
+}
+
+.puesto ul {
+  list-style: none;
+  padding: 0;
+}
+
+.puesto li {
+  padding: 5px 0;
+  border-bottom: 1px solid #ccc;
+}
