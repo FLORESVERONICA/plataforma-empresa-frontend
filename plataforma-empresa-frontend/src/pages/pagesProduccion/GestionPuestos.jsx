@@ -15,7 +15,7 @@ const GestionPuestos = () => {
   const fetchDepartamentos = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('http://localhost:5000/api/departamentos');
+      const response = await axios.get('http://localhost:5000/api/produccion/departamentos');
       setDepartamentos(response.data);
     } catch (error) {
       console.error('Error obteniendo departamentos:', error);
@@ -30,7 +30,7 @@ const GestionPuestos = () => {
       return alert('El nombre del departamento es obligatorio.');
     }
     try {
-      const response = await axios.post('http://localhost:5000/api/departamentos', {
+      const response = await axios.post('http://localhost:5000/api/produccion/departamentos', {
         nombre: nuevoDepartamento,
         puestos: [],
       });
@@ -45,21 +45,24 @@ const GestionPuestos = () => {
   };
 
   const agregarPuesto = async (departamentoId) => {
-    const puesto = puestos[departamentoId];
+    const puesto = puestos[departamentoId] || {};
     if (!puesto?.nombre.trim() || !puesto?.inicio.trim() || !puesto?.fin.trim()) {
       return alert('Todos los campos son obligatorios.');
     }
 
     try {
       const horarioArray = [{ inicio: puesto.inicio, fin: puesto.fin }];
-      const response = await axios.post(`http://localhost:5000/api/departamentos/${departamentoId}/puestos`, {
+      const response = await axios.post(`http://localhost:5000/api/produccion/departamentos/${departamentoId}/puestos`, {
         nombre: puesto.nombre,
         horario: horarioArray,
       });
 
       setDepartamentos(departamentos.map(dep =>
-        dep._id === departamentoId ? response.data : dep
+        dep._id === departamentoId ? { ...dep, puestos: [...dep.puestos, response.data] } : dep
+
       ));
+      await fetchDepartamentos();
+      
       setPuestos({ ...puestos, [departamentoId]: { nombre: '', inicio: '', fin: '' } });
     } catch (error) {
       console.error('Error agregando puesto:', error);
@@ -68,7 +71,7 @@ const GestionPuestos = () => {
 
   const eliminarDepartamento = async (id) => {
     try {
-      const response = await axios.delete(`http://localhost:5000/api/departamentos/${id}`);
+      const response = await axios.delete(`http://localhost:5000/api/produccion/departamentos/${id}`);
 
       if (response.status === 200) {
         setDepartamentos(departamentos.filter(departamento => departamento._id !== id));
@@ -82,7 +85,7 @@ const GestionPuestos = () => {
 
   const eliminarPuesto = async (departamentoId, puestoId) => {
     try {
-      const response = await axios.delete(`http://localhost:5000/api/departamentos/${departamentoId}/puestos/${puestoId}`);
+      const response = await axios.delete(`http://localhost:5000/api/produccion/departamentos/${departamentoId}/puestos/${puestoId}`);
 
       if (response.status === 200) {
         setDepartamentos(departamentos.map(departamento =>
@@ -164,21 +167,22 @@ const GestionPuestos = () => {
               </button> 
               </div> 
               <ul className="puestos-lista"> 
-                {Array.isArray(departamento.puestos) && departamento.puestos.map((puesto) => ( 
-                  <li key={puesto._id}> 
+              {Array.isArray(departamento.puestos) && departamento.puestos.map((puesto) => ( 
+                <li key={puesto._id}> 
                   <strong>{puesto.nombre}</strong> -{' '} 
-                  {puesto.horario.map((h, index) => ( 
+                  {Array.isArray(puesto.horario) && puesto.horario.map((h, index) => ( 
                     <span key={`${puesto._id}-${index}`}> 
-                    {h.inicio} - {h.fin} 
-                    {index < puesto.horario.length - 1 && ', '} 
+                      {h.inicio} - {h.fin} 
+                      {index < puesto.horario.length - 1 && ', '} 
                     </span>
-                    ))} 
-                    <button onClick={() => eliminarPuesto(departamento._id, puesto._id)}> 
-                      Eliminar Puesto 
-                      </button> 
-                    </li> 
                   ))} 
-                </ul> 
+                  <button onClick={() => eliminarPuesto(departamento._id, puesto._id)}> 
+                    Eliminar Puesto 
+                  </button> 
+                </li> 
+              ))} 
+            </ul>
+      
               </div> 
             )) 
           )} 

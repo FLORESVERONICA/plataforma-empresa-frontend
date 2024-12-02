@@ -7,7 +7,7 @@ const WorkerList = ({ workers, setWorkers, setShowForm, setSelectedWorker }) => 
     const [filteredWorkers, setFilteredWorkers] = useState(workers);  
 
     useEffect(() => {
-        // Filtrar trabajadores cuando cambian los trabajadores, el término de búsqueda o el estado
+       
         setFilteredWorkers(
             workers.filter(worker => {
                 const matchesSearch = worker.NombreCompleto.toLowerCase().includes(searchTerm.toLowerCase()) ||

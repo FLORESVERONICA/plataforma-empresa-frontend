@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import {estadoLabels, grupoDescansoLabels, departamentoLabels, puestoLabels  } from "../components/WorkerForm"
 
 const WorkDetails = () => {
     const { id } = useParams();
@@ -20,10 +21,11 @@ const WorkDetails = () => {
         <div>
           <h2>Detalles del Trabajador</h2>
           <p><strong>Nombre Completo:</strong> {worker.NombreCompleto}</p>
-          <p><strong>Estado:</strong> {worker.Estado}</p>
+          <p><strong>Estado:</strong> {estadoLabels[worker.Estado] || worker.Estado}</p>
           <p><strong>DNI:</strong> {worker.dni}</p>
           <p><strong>Número SS:</strong> {worker.NumeroSS}</p>
           <p><strong>Email:</strong> {worker.email}</p>
+          <p><strong>Antigüedad:</strong> {worker.Antiguedad ? new Date(worker.Antiguedad).toLocaleDateString() : 'No especificada'}</p>
           <p><strong>Teléfono:</strong> {worker.Telefono}</p>
           <p><strong>Dirección:</strong> {worker.Direccion}</p>
           <p><strong>Tipo de Contrato:</strong> {worker.TipodeContrato}</p>
@@ -32,9 +34,9 @@ const WorkDetails = () => {
           <p><strong>Suplemento Salarial:</strong> {worker.SuplementoSalarial}</p>
           <p><strong>ID Empresa:</strong> {worker.idEmpresa}</p>
           <p><strong>Numero de Tarjeta:</strong> {worker.NumeroTarjeta}</p>
-          <p><strong>Grupo de Descanso:</strong> {worker.GrupoDescanso}</p>
-          <p><strong>Departamento:</strong> {worker.Departamento}</p>
-          <p><strong>Puesto:</strong> {worker.Puesto}</p>
+          <p><strong>Grupo de Descanso:</strong> {grupoDescansoLabels[worker.GrupoDescanso] || worker.GrupoDescanso}</p>
+          <p><strong>Departamento:</strong> {departamentoLabels[worker.Departamento] || worker.Departamento}</p>
+          <p><strong>Puesto:</strong> { puestoLabels[worker.Puesto] || worker.Puesto}</p>
           
     
           <h3>Historial de Absentismo</h3>

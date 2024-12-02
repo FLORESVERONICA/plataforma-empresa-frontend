@@ -19,7 +19,7 @@ const Horarios = () => {
 
   const fetchWorkers = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/employees');
+      const response = await axios.get('http://localhost:5000/api/rrhh/employees');
       setWorkers(response.data);
     } catch (error) {
       console.error('Error obteniendo trabajadores:', error);
