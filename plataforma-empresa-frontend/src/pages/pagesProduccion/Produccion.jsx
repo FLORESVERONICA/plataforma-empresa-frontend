@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom'; 
 import './Produccion.css'
-import ProducNavbar from '../components/ProducNavbar';
+import ProducNavbar from '../../components/ProducNavbar';
 
 
 const Produccion = () =>{

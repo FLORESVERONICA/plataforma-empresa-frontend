@@ -6,10 +6,10 @@ const ProducNavbar = () => {
     <div>
       <nav>
         <ul>
-          <li><Link to="/produccion/productividad">Productividad</Link></li>
-          <li><Link to="/produccion/personal">Personal</Link></li>
-          <li><Link to="/produccion/pedidos">Pedidos</Link></li>
-          <li><Link to="/produccion/almacenes">Almacenes</Link></li>
+          <li><Link to="/productividad">Productividad</Link></li>
+          <li><Link to="/personal">Personal</Link></li>
+          <li><Link to="/pedidos">Pedidos</Link></li>
+          <li><Link to="/almacenes">Almacenes</Link></li>
         </ul>
       </nav>
     </div>

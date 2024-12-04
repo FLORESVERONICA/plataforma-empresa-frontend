@@ -10,7 +10,7 @@ const ListaDeTrabajadores = () => {
   const [selectedWorker, setSelectedWorker] = useState(null);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/rrhh/employees')
+    axios.get('http://localhost:5000/api/rrhh/employee')
       .then(response => setWorkers(response.data))
       .catch(error => console.error('Error obteniendo trabajadores', error));
   }, []);

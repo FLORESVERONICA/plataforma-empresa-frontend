@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import {estadoLabels, grupoDescansoLabels, departamentoLabels, puestoLabels  } from "../components/WorkerForm"
+import {estadoLabels, grupoDescansoLabels, departamentoLabels, puestoLabels  } from "../../components/WorkerForm"
 
 const WorkDetails = () => {
     const { id } = useParams();

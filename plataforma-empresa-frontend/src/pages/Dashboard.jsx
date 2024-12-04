@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import './Dashboard.css';
 
 const Dashboard = () => {
@@ -11,11 +11,13 @@ const Dashboard = () => {
         <h2>Accesos Rápidos</h2>
         <nav className="quick-access-nav">
           <ul>
-            <li><Link to="/rrhh">RRHH</Link></li>
-            <li><Link to="/produccion">Producción</Link></li>
-            <li><Link to="/logistica">Logística</Link></li>
-            <li><Link to="/calidad">Calidad</Link></li>
-            <li><Link to="/portal-emp">Portal de Empleado</Link></li>
+            <li><Link to="/assign-role">Asignar Rol</Link></li>
+            <li><Link to="rrhh">RRHH</Link></li>
+            <li><Link to="produccion">Producción</Link></li>
+            <li><Link to="logistica">Logística</Link></li>
+            <li><Link to="calidad">Calidad</Link></li>
+            <li><Link to="portal-emp">Portal de Empleado</Link></li>
+            <li><Link to="/Home">Home</Link></li>
           </ul>
         </nav>
       </div>
@@ -39,9 +41,9 @@ const Dashboard = () => {
           <p>Productos aprobados: 1400</p>
         </div>
       </div>
+      <Outlet /> {/* Renderiza las rutas hijas aquí */}
     </div>
   );
 };
 
 export default Dashboard;
-
