@@ -91,9 +91,9 @@
   background-color: #c82333;
 }
 
-/* Estilo para la lista de puestos */
+
 .puestos-lista li {
-  color: #2357c8; /* Azul */
+  color: #2357c8; 
   font-weight: bold;
   margin: 5px 0;
 }

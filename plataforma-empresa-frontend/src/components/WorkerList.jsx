@@ -18,14 +18,14 @@ const WorkerList = ({ workers, setWorkers, setShowForm, setSelectedWorker }) => 
                 return matchesSearch && matchesStatus;
             })
         );
-    }, [workers, searchTerm, filterStatus]); // Este useEffect maneja todo el filtrado
+    }, [workers, searchTerm, filterStatus]);
 
     const handleEdit = (worker) => {
-        setSelectedWorker(worker); // Establecer el trabajador seleccionado
-        setShowForm(true); // Mostrar el formulario de edición
+        setSelectedWorker(worker);
+        setShowForm(true);
     };
 
-    // Filtrar los trabajadores activos e inactivos
+   
     const activeWorkers = filteredWorkers.filter((worker) => worker.Estado !== 'desvinculado');
     const inactiveWorkers = filteredWorkers.filter((worker) => worker.Estado === 'desvinculado');
 
@@ -33,7 +33,7 @@ const WorkerList = ({ workers, setWorkers, setShowForm, setSelectedWorker }) => 
         <div>
             <h2>Lista de Trabajadores</h2>
 
-            {/* Buscador y filtro */}
+            
             <div style={{ marginBottom: '20px' }}>
                 <input
                     type="text"
@@ -55,7 +55,7 @@ const WorkerList = ({ workers, setWorkers, setShowForm, setSelectedWorker }) => 
                 </select>
             </div>
 
-            {/* Lista de trabajadores activos */}
+           
             <h3>Trabajadores Activos</h3>
             <ul>
                 {activeWorkers.map((worker) => (
@@ -80,7 +80,7 @@ const WorkerList = ({ workers, setWorkers, setShowForm, setSelectedWorker }) => 
                 ))}
             </ul>
 
-            {/* Lista de trabajadores desvinculados */}
+           
             <h3>Trabajadores Desvinculados</h3>
             <ul>
                 {inactiveWorkers.map((worker) => (

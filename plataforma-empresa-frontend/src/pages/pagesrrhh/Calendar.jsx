@@ -11,13 +11,13 @@ const Calendar = () => {
   const [restGroups, setRestGroups] = useState([]);
 
   const restSchedules = [
-    { group: 'A', restDays: [1, 2] },  // Lunes, Martes
-    { group: 'B', restDays: [3, 4] },  // Miércoles, Jueves
-    { group: 'C', restDays: [5, 6] },  // Viernes, Sábado
-    { group: 'D', restDays: [6, 0] },  // Sábado, Domingo
+    { group: 'A', restDays: [1, 2] },  
+    { group: 'B', restDays: [3, 4] },  
+    { group: 'C', restDays: [5, 6] },  
+    { group: 'D', restDays: [6, 0] },  
   ];
 
-  // Obtener los días de descanso para todo el mes
+  
   const getRestDaysForMonth = (date) => {
     const startOfMonthDate = startOfMonth(date);
     const endOfMonthDate = endOfMonth(date);
@@ -38,11 +38,11 @@ const Calendar = () => {
     setRestGroups(restDaysForMonth);
   };
 
-  // Cargar festivos desde la API
+
   useEffect(() => {
     const fetchHolidays = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/rrhh/holidays');
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/rrhh/holidays`);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
@@ -55,7 +55,7 @@ const Calendar = () => {
     fetchHolidays();
   }, []);
 
-  // Agregar un nuevo festivo a través de la API
+ 
   const addHoliday = async () => {
     if (!holidayDate) {
       alert('Por favor, selecciona una fecha');
@@ -68,7 +68,7 @@ const Calendar = () => {
       return;
     }
     try {
-      const response = await fetch('http://localhost:5000/api/rrhh/holidays', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/rrhh/holidays`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ date: formattedDate, type: holidayType }),
@@ -86,7 +86,7 @@ const Calendar = () => {
 
   const deleteHoliday = async (holidayId) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/rrhh/holidays/${holidayId}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/rrhh/holidays/${holidayId}`, {
         method: 'DELETE',
       });
       if (!response.ok) {
@@ -102,7 +102,7 @@ const Calendar = () => {
     getRestDaysForMonth(currentMonth);
   }, [currentMonth]);
 
-  // Renderizar los días del mes
+  
   const renderDays = () => {
     const days = eachDayOfInterval({
       start: startOfMonth(currentMonth),

@@ -10,20 +10,20 @@ import Calendar from "../pages/pagesrrhh/Calendar";
 import Personal from "../pages/pagesProduccion/Personal";
 import Horarios from "../pages/pagesProduccion/Horarios";
 import GestionPuestos from "../pages/pagesProduccion/GestionPuestos";
-import RoleAssignment from "../components/AssigRole"; // Importa el componente de asignación de roles
-import Login from "../components/Login"; // Importa el componente de login
-import Register from "../components/Register"; // Importa el componente de registro
+import RoleAssignment from "../components/AssigRole"; 
+import Login from "../components/Login";
+import Register from "../components/Register"; 
 import PortalEmpleado from "../pages/PortalEmpleado";
 
 const AppRouter = () => {
 
-  const role = localStorage.getItem('role') || ''; // Asegúrate de que role tenga un valor por defecto
+  const role = localStorage.getItem('role') || '';
 
  return ( 
  <Routes> 
   <Route path="/" element={<Home />} /> 
-  <Route path="/dashboard" element={role === 'admin' ? <Dashboard /> : <Navigate to="/home/login" />} /> 
-  <Route path="rrhh" element={role === 'admin' || role === 'Responsable RRHH' ? <RRHH /> : <Navigate to="/home/login" />} /> 
+  <Route path="dashboard" element={role === 'admin' ? <Dashboard /> : <Navigate to="/home/login" />} /> 
+  <Route path="dashboard/rrhh" element={role === 'admin' || role === 'Responsable RRHH' ? <RRHH /> : <Navigate to="/home/login" />} /> 
   <Route path="/lista-trabajadores" element={role === 'admin' || role === 'Responsable RRHH' ? <ListaDeTrabajadores /> : <Navigate to="/home/login" />} /> 
   <Route path="*/worker/:id" element={role === 'admin' || role === 'Responsable RRHH' ? <WorkDetails /> : <Navigate to="/home/login" />} /> 
   <Route path="/calendario-laboral" element={role === 'admin' || role === 'Responsable RRHH' ? <Calendar /> : <Navigate to="/home/login" />} /> 
@@ -32,8 +32,8 @@ const AppRouter = () => {
   <Route path="/personal" element={role === 'admin' ? <Personal /> : <Navigate to="/home/login" />} /> 
   <Route path="/gestion-puestos" element={role === 'admin' ? <GestionPuestos /> : <Navigate to="/home/login" />} /> 
   <Route path="/horarios" element={role === 'admin' ? <Horarios /> : <Navigate to="/home/login" />} /> 
-  <Route path="/home/login" element={<Login />} /> {/* Ruta de login */} 
-  <Route path="/home/register" element={<Register />} /> {/* Ruta de registro */} 
+  <Route path="/home/login" element={<Login />} /> 
+  <Route path="/home/register" element={<Register />} />
   <Route path="/home" element={<Home />} /> 
   <Route path="/employee-portal" element={role === 'worker' ? <PortalEmpleado /> : <Navigate to="/home/login" />} /> 
   </Routes> 

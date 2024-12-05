@@ -90,7 +90,7 @@ const WorkerForm = ({ setShowForm, selectedWorker, setWorkers }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (selectedWorker) {
-      axios.put(`http://localhost:5000/api/employees/${selectedWorker._id}`, worker)
+      axios.put(`${import.meta.env.VITE_API_URL}/api/employees/${selectedWorker._id}`, worker)
         .then(response => {
           alert('Trabajador actualizado');
           setShowForm(false);
@@ -101,7 +101,7 @@ const WorkerForm = ({ setShowForm, selectedWorker, setWorkers }) => {
           alert('Hubo un error al actualizar el trabajador');
         });
     } else {
-      axios.post('http://localhost:5000/api/employees', worker)
+      axios.post(`${import.meta.env.VITE_API_URL}/api/employees`, worker)
         .then(response => {
           alert('Trabajador agregado');
           setShowForm(false);
@@ -127,7 +127,7 @@ const WorkerForm = ({ setShowForm, selectedWorker, setWorkers }) => {
   };
 
   const fetchWorkers = () => {
-    axios.get('http://localhost:5000/api/rrhh/employees')
+    axios.get(`${import.meta.env.VITE_API_URL}/api/rrhh/employees`)
       .then(response => {
         setWorkers(response.data);
       })

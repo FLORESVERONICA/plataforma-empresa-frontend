@@ -8,7 +8,7 @@ const WorkDetails = () => {
     const [worker, setWorker] = useState(null);
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/employees/${id}`)
+        axios.get(`${import.meta.env.VITE_API_URL}/api/employees/${id}`)
         .then(response => setWorker(response.data))
         .catch(error => console.error('Error obteniendo detalles del trabajador', error));
     }, [id]);

@@ -19,7 +19,7 @@ const Horarios = () => {
 
   const fetchWorkers = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/rrhh/employees');
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/rrhh/employees`);
       setWorkers(response.data);
     } catch (error) {
       console.error('Error obteniendo trabajadores:', error);
@@ -59,7 +59,7 @@ const Horarios = () => {
       </div>
 
       <div className="horarios-lista">
-        {Object.keys(horarios).map(departamento => (
+        {Object.keys(horarios).map((departamento) => (
           <div key={departamento} className="departamento">
             <h3>{departamento}</h3>
             <ul>

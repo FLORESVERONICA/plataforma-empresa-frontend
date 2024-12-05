@@ -9,7 +9,7 @@ const AssignRole = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:5000/api/users', {
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/users`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setUsers(response.data);
@@ -21,7 +21,7 @@ const AssignRole = () => {
     e.preventDefault();
     try {
       const token = localStorage.getItem('token');
-      await axios.put(`http://localhost:5000/api/assign-role/${selectedUser}`, { role }, {
+      await axios.put(`${import.meta.env.VITE_API_URL}/api/assign-role/${selectedUser}`, { role }, {
         headers: { Authorization: `Bearer ${token}` }
       });
       alert('Rol asignado');

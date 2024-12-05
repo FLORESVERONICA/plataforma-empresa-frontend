@@ -10,42 +10,42 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/login', { email, password });
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/login`, { email, password });
       const { token, role } = response.data;
       localStorage.setItem('token', token);
       localStorage.setItem('role', role);
       alert('Inicio de sesión exitoso');
 
-      // Redirigir según el rol del usuario
-      if (role === 'admin') { 
+      
+      if (role === 'admin') {
         navigate('/dashboard');
-     } else if (role === 'worker') { 
-        navigate('/employee-portal'); 
-     }   else if (role === 'Responsable RRHH') { 
-            navigate('/rrhh'); 
-    } else { 
-        navigate('/'); 
-    } 
-} catch (error) { 
-    if (error.response && error.response.data && error.response.data.message) { 
-        setError(error.response.data.message);  
-    } else { 
-        setError('Error iniciando sesión'); } }
-};
+      } else if (role === 'worker') {
+        navigate('/employee-portal');
+      } else if (role === 'Responsable RRHH') {
+        navigate('/rrhh');
+      } else {
+        navigate('/');
+      }
+    } catch (error) { 
+      if (error.response && error.response.data && error.response.data.message) { 
+        alert(error.response.data.message);  
+      } else { 
+        alert('Error iniciando sesión'); 
+      } 
+    }
+  };
 
   return (
     <form onSubmit={handleLogin}>
       <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Correo electrónico" autoComplete="email" />
       <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Contraseña" autoComplete="current-password" />
       <button type="submit">Iniciar Sesión</button>
-      
-</form>
+   
+    </form>
   );
 };
 
 export default Login;
-
-
 
 
 

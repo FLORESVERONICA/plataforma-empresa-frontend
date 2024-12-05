@@ -15,7 +15,7 @@ const GestionPuestos = () => {
   const fetchDepartamentos = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('http://localhost:5000/api/produccion/departamentos');
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/produccion/departamentos`);
       setDepartamentos(response.data);
     } catch (error) {
       console.error('Error obteniendo departamentos:', error);
@@ -30,7 +30,7 @@ const GestionPuestos = () => {
       return alert('El nombre del departamento es obligatorio.');
     }
     try {
-      const response = await axios.post('http://localhost:5000/api/produccion/departamentos', {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/produccion/departamentos`, {
         nombre: nuevoDepartamento,
         puestos: [],
       });
@@ -52,7 +52,7 @@ const GestionPuestos = () => {
 
     try {
       const horarioArray = [{ inicio: puesto.inicio, fin: puesto.fin }];
-      const response = await axios.post(`http://localhost:5000/api/produccion/departamentos/${departamentoId}/puestos`, {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/produccion/departamentos/${departamentoId}/puestos`, {
         nombre: puesto.nombre,
         horario: horarioArray,
       });
@@ -71,7 +71,7 @@ const GestionPuestos = () => {
 
   const eliminarDepartamento = async (id) => {
     try {
-      const response = await axios.delete(`http://localhost:5000/api/produccion/departamentos/${id}`);
+      const response = await axios.delete(`${import.meta.env.VITE_API_URL}/api/produccion/departamentos/${id}`);
 
       if (response.status === 200) {
         setDepartamentos(departamentos.filter(departamento => departamento._id !== id));
@@ -85,7 +85,7 @@ const GestionPuestos = () => {
 
   const eliminarPuesto = async (departamentoId, puestoId) => {
     try {
-      const response = await axios.delete(`http://localhost:5000/api/produccion/departamentos/${departamentoId}/puestos/${puestoId}`);
+      const response = await axios.delete(`${import.meta.env.VITE_API_URL}/api/produccion/departamentos/${departamentoId}/puestos/${puestoId}`);
 
       if (response.status === 200) {
         setDepartamentos(departamentos.map(departamento =>

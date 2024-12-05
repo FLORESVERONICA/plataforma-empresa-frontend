@@ -41,7 +41,7 @@ const Dashboard = () => {
           <p>Productos aprobados: 1400</p>
         </div>
       </div>
-      <Outlet /> {/* Renderiza las rutas hijas aquí */}
+      <Outlet />
     </div>
   );
 };
