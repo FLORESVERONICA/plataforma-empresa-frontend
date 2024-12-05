@@ -22,7 +22,7 @@ const AppRouter = () => {
  return ( 
  <Routes> 
   <Route path="/" element={<Home />} /> 
-  <Route path="dashboard" element={role === 'admin' ? <Dashboard /> : <Navigate to="/home/login" />} /> 
+  <Route path="/dashboard" element={role === 'admin' ? <Dashboard /> : <Navigate to="/home/login" />} /> 
   <Route path="dashboard/rrhh" element={role === 'admin' || role === 'Responsable RRHH' ? <RRHH /> : <Navigate to="/home/login" />} /> 
   <Route path="/lista-trabajadores" element={role === 'admin' || role === 'Responsable RRHH' ? <ListaDeTrabajadores /> : <Navigate to="/home/login" />} /> 
   <Route path="*/worker/:id" element={role === 'admin' || role === 'Responsable RRHH' ? <WorkDetails /> : <Navigate to="/home/login" />} /> 
