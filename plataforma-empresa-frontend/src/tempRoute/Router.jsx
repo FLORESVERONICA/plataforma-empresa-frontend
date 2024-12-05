@@ -32,8 +32,8 @@ const AppRouter = () => {
   <Route path="/personal" element={role === 'admin' ? <Personal /> : <Navigate to="/home/login" />} /> 
   <Route path="/gestion-puestos" element={role === 'admin' ? <GestionPuestos /> : <Navigate to="/home/login" />} /> 
   <Route path="/horarios" element={role === 'admin' ? <Horarios /> : <Navigate to="/home/login" />} /> 
-  <Route path="/home/login" element={<Login />} /> 
-  <Route path="/home/register" element={<Register />} />
+  <Route path="/login" element={<Login />} /> 
+  <Route path="/register" element={<Register />} />
   <Route path="/home" element={<Home />} /> 
   <Route path="/employee-portal" element={role === 'worker' ? <PortalEmpleado /> : <Navigate to="/home/login" />} /> 
   </Routes> 
