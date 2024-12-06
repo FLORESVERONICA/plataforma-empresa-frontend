@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-
+import { AuthContext } from '../context/AuthContext';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const { setUserInfo } = useContext(AuthContext);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -16,13 +17,14 @@ const Login = () => {
       localStorage.setItem('role', role);
       alert('Inicio de sesión exitoso');
 
-      
-      if (role === 'admin') {
+      setUserInfo({ email, role });
+
+       if (role === 'admin') {
         navigate('/dashboard');
       } else if (role === 'worker') {
         navigate('/employee-portal');
       } else if (role === 'Responsable RRHH') {
-        navigate('/rrhh');
+        navigate('/dashboard/rrhh');
       } else {
         navigate('/');
       }

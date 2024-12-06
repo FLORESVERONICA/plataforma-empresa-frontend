@@ -14,16 +14,19 @@ import RoleAssignment from "../components/AssigRole";
 import Login from "../components/Login";
 import Register from "../components/Register"; 
 import PortalEmpleado from "../pages/PortalEmpleado";
+import LoggedInUser from "../components/LoggedInUser"; 
 
 const AppRouter = () => {
 
   const role = localStorage.getItem('role') || '';
 
  return ( 
+  <div>
+    <LoggedInUser />
  <Routes> 
   <Route path="/" element={<Home />} /> 
   <Route path="/dashboard" element={role === 'admin' ? <Dashboard /> : <Navigate to="/home/login" />} /> 
-  <Route path="dashboard/rrhh" element={role === 'admin' || role === 'Responsable RRHH' ? <RRHH /> : <Navigate to="/home/login" />} /> 
+  <Route path="/dashboard/rrhh" element={role === 'admin' || role === 'Responsable RRHH' ? <RRHH /> : <Navigate to="/home/login" />} /> 
   <Route path="/lista-trabajadores" element={role === 'admin' || role === 'Responsable RRHH' ? <ListaDeTrabajadores /> : <Navigate to="/home/login" />} /> 
   <Route path="*/worker/:id" element={role === 'admin' || role === 'Responsable RRHH' ? <WorkDetails /> : <Navigate to="/home/login" />} /> 
   <Route path="/calendario-laboral" element={role === 'admin' || role === 'Responsable RRHH' ? <Calendar /> : <Navigate to="/home/login" />} /> 
@@ -37,6 +40,7 @@ const AppRouter = () => {
   <Route path="/home" element={<Home />} /> 
   <Route path="/employee-portal" element={role === 'worker' ? <PortalEmpleado /> : <Navigate to="/home/login" />} /> 
   </Routes> 
+  </div>
   );
 };
 
