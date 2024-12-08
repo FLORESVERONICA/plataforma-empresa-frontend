@@ -1,6 +1,5 @@
 
 import { Link, Outlet } from 'react-router-dom';
-import './Personal.css';
 
 const Personal = () => {
 
@@ -10,7 +9,7 @@ const Personal = () => {
       <nav>
         <ul>
           <li><Link to="/calendario-laboral">Calendario Laboral</Link></li>
-          <li><Link to="/lista-trabajadores">Lista de Trabajadores</Link></li>
+          <li><Link to="/listado-personal">Lista Personal</Link></li>
           <li><Link to="/horarios">Horarios</Link></li>
           <li><Link to="/gestion-puestos">Gestión de Puestos</Link></li>
         </ul>

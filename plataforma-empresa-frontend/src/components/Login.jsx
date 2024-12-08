@@ -23,6 +23,8 @@ const Login = () => {
         navigate('/dashboard');
       } else if (role === 'worker') {
         navigate('/employee-portal');
+      } else if (role === 'Responsable Produccion') {
+        navigate('/dashboard/produccion');
       } else if (role === 'Responsable RRHH') {
         navigate('/dashboard/rrhh');
       } else {

@@ -31,7 +31,7 @@ export const puestoLabels = {
   Arroz_dia: "Arroz Día",
   Arroz_noche: "Arroz Noche",
   Verduras: "Verduras",
-  Manga: "Manga",
+  Manga: "Mangas",
   Corte_Pescado: "Corte Pescado",
   ProducciondeRollos1: "Prod Rollos Mesa 1",
   ProducciondeRollos2: "Prod Rollos Mesa 2",
@@ -76,8 +76,11 @@ const WorkerForm = ({ setShowForm, selectedWorker, setWorkers }) => {
   useEffect(() => { 
     if (selectedWorker) { 
       setWorker({ 
+        ...worker,
         ...selectedWorker, 
-        Antiguedad: selectedWorker.Antiguedad ? new Date(selectedWorker.Antiguedad).toISOString().split('T')[0] : '' 
+        Antiguedad: selectedWorker.Antiguedad 
+        ? new Date(selectedWorker.Antiguedad).toISOString().split('T')[0] 
+        : '' ,
       }); 
     } 
   }, [selectedWorker]);
@@ -87,32 +90,31 @@ const WorkerForm = ({ setShowForm, selectedWorker, setWorkers }) => {
     setWorker({ ...worker, [name]: type === 'checkbox' ? checked : value }); 
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    if (selectedWorker) {
-      axios.put(`${import.meta.env.VITE_API_URL}/api/employees/${selectedWorker._id}`, worker)
-        .then(response => {
-          alert('Trabajador actualizado');
-          setShowForm(false);
-          fetchWorkers();
-        })
-        .catch(error => {
-          console.error('Error al actualizar el trabajador', error);
-          alert('Hubo un error al actualizar el trabajador');
-        });
-    } else {
-      axios.post(`${import.meta.env.VITE_API_URL}/api/employees`, worker)
-        .then(response => {
-          alert('Trabajador agregado');
-          setShowForm(false);
-          fetchWorkers();
-        })
-        .catch(error => {
-          console.error('Error al agregar trabajador', error);
-          alert('Hubo un error al agregar el trabajador');
-        });
+  
+    try {
+      if (selectedWorker) {
+        await axios.put(
+          `${import.meta.env.VITE_API_URL}/api/rrhh/employee/${selectedWorker._id}`,
+          worker
+        );
+        alert("Trabajador actualizado");
+      } else {
+        await axios.post(
+          `${import.meta.env.VITE_API_URL}/api/rrhh/employee`,
+          worker
+        );
+        alert("Trabajador agregado");
+      }
+      fetchWorkers();
+      setShowForm(false);
+    } catch (error) {
+      console.error("Error al guardar el trabajador", error);
+      alert("Hubo un error al guardar el trabajador");
     }
   };
+  
 
   const handleAbsentismo = () => {
     const newAbsentismo = {
@@ -127,7 +129,7 @@ const WorkerForm = ({ setShowForm, selectedWorker, setWorkers }) => {
   };
 
   const fetchWorkers = () => {
-    axios.get(`${import.meta.env.VITE_API_URL}/api/rrhh/employees`)
+    axios.get(`${import.meta.env.VITE_API_URL}/api/rrhh/employee`)
       .then(response => {
         setWorkers(response.data);
       })

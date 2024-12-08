@@ -12,7 +12,9 @@ const ListaDeTrabajadores = () => {
   useEffect(() => {
     axios.get(`${import.meta.env.VITE_API_URL}/api/rrhh/employee`)
       .then(response => setWorkers(response.data))
-      .catch(error => console.error('Error obteniendo trabajadores', error));
+      .catch(error => {console.error('Error obteniendo trabajadores', error)
+      setWorkers([]);
+  });
   }, []);
 
   const handleAddWorker = () => {

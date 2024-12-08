@@ -1,0 +1,140 @@
+
+#personal-list-container {
+    max-width: 800px;
+    margin: 40px auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+ 
+  #personal-list-container h1 {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+
+  ul#personal-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+  }
+  
+  ul#personal-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+  
+  }
+  
+  ul#personal-list li:hover {
+    background-color: green;
+  }
+  
+  ul#personal-list li:last-child {
+    border-bottom: none;
+  }
+  
+  
+  #employee-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 500px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+  
+  #employee-modal.active {
+    display: block; 
+  }
+  
+  
+  #modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+  }
+  
+  #modal-overlay.active {
+    display: block; 
+  }
+  
+
+  #employee-modal input,
+  #employee-modal select {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  #employee-modal label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+
+  #employee-modal .modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  
+  #employee-modal .modal-buttons button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  #employee-modal .modal-buttons .save-btn {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  #employee-modal .modal-buttons .save-btn:hover {
+    background-color: #45a049;
+  }
+  
+  #employee-modal .modal-buttons .cancel-btn {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  #employee-modal .modal-buttons .cancel-btn:hover {
+    background-color: #e53935;
+  }
+
+  .error-message {
+    color: #e53935;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
